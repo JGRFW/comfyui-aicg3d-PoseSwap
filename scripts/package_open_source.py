@@ -16,6 +16,8 @@ SKIP_SUFFIXES = {
 }
 REQUIRED_TEXT_FILES = (
     "LICENSE",
+    "NOTICE",
+    "DISCLAIMER.md",
     "AUTHORS.md",
     "README.md",
     "LEGAL_AND_SAFETY.md",

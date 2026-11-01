@@ -1,0 +1,26 @@
+Portrait Library License Notice
+
+Source: AI モデル顔データベース / AI Portrait Gallery
+Original site: https://ai-portrait-gallery.pages.dev/
+Original author: あぎ / Agi (@agi_aibusi)
+Author URL: https://x.com/agi_aibusi
+Snapshot date: 2026-10-30
+
+The original site states that its AI-generated portrait material is released
+under CC0 1.0:
+https://creativecommons.org/publicdomain/zero/1.0/
+
+The original site also requests that the image data itself not be directly
+redistributed or reposted. This repository includes compressed copies at the
+repository owner's distribution decision. Inclusion does not mean that the
+original author has separately confirmed, endorsed, or authorized this
+repository.
+
+The images are AI-generated fictional portraits according to the original
+site. They may still resemble real people. Do not use them for impersonation,
+identity fraud, privacy violations, non-consensual intimate content, sexual
+content involving minors, or any unlawful or harmful purpose.
+
+This notice does not modify the project's MIT code license and does not grant
+rights beyond those provided by the applicable license and law. See
+../DISCLAIMER.md and ../THIRD_PARTY_NOTICES.md for the full project notices.

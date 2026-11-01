@@ -34,3 +34,5 @@ The MIT license for the project code is in [LICENSE](LICENSE).
 - Pose LoRA: https://huggingface.co/MIUProject/VNCCS_PoseStudio_QI2.1
 
 These credits do not imply affiliation, authorization, or endorsement. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and [LEGAL_AND_SAFETY.md](LEGAL_AND_SAFETY.md).
+
+The project author does not claim ownership of the third-party images, indexes, descriptions, model weights, or trademarks. Their inclusion does not grant downstream users a license beyond the rights provided by the relevant rightsholder or applicable law. See [DISCLAIMER.md](DISCLAIMER.md) and [NOTICE](NOTICE).

@@ -5,8 +5,11 @@
 项目作者/维护者：JGRFW。项目源代码采用 MIT License，版权声明见 [LICENSE](LICENSE)，上游作者与素材来源见 [AUTHORS.md](AUTHORS.md)。
 
 > [!IMPORTANT]
+> 本仓库不是一份已完成权利清理的素材包。第三方素材被包含在仓库中，不等于项目作者拥有、授权、认可或保证其可再分发、可商用。
 > MIT 只覆盖项目源代码。`library/`、`garments/`、`portraits/` 中的图片和索引属于第三方素材，不在 MIT 范围内；模型权重也不随仓库提供。
 > 当前姿势图库明确限制商业使用，服装图库未找到覆盖再分发的许可证，人像图库虽标注 CC0 但同时请求避免再分发。公开发布完整素材包前必须阅读 [LEGAL_AND_SAFETY.md](LEGAL_AND_SAFETY.md)、[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) 和 [RELEASE_CHECKLIST.md](RELEASE_CHECKLIST.md)。免责声明不能替代授权。
+>
+> 使用前请完整阅读 [DISCLAIMER.md](DISCLAIMER.md)、[NOTICE](NOTICE) 和 [AUTHORS.md](AUTHORS.md)。如你是权利人并认为相关内容不应分发，请通过 GitHub Issue 联系下架。
 >
 > 内容提示：姿势与服装索引包含成人向分类。项目仅面向成年人；不得用于未成年人性化、非自愿性化、冒充真实人物或其他违法用途。
 

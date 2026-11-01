@@ -40,6 +40,8 @@ git count-objects -vH
 - [ ] 根目录 `LICENSE` 为代码许可证，第三方素材没有被打包进去冒充 MIT。
 - [ ] `README.md` 清楚写明作者、来源、非官方关系、模型不包含和素材边界。
 - [ ] `THIRD_PARTY_NOTICES.md` 与 `PORTRAIT_LIBRARY_NOTICE.md` 已更新。
+- [ ] 根目录 `NOTICE`、`DISCLAIMER.md`、`LEGAL_AND_SAFETY.md` 已保留，并明确免责声明不能替代授权。
+- [ ] `garments/NOTICE.md`、`garments/SOURCE.json`、`library/ASSET_NOTICE.md`、`portraits/LICENSE.txt`、`portraits/NOTICE.md` 已随素材保留。
 - [ ] `LEGAL_AND_SAFETY.md` 已在 README 顶部链接。
 - [ ] 仓库没有 `.safetensors`、`.ckpt`、`.pt`、`.pth` 模型权重。
 - [ ] 仓库没有个人隐私、API Token、Cookie、`.env`、日志、生成结果缓存。
