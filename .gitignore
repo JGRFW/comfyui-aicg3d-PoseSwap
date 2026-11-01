@@ -5,3 +5,23 @@ __pycache__/
 *.log
 .DS_Store
 Thumbs.db
+.env
+*.env
+dist/
+release/
+*.zip
+*.safetensors
+*.ckpt
+*.pt
+*.pth
+aicg3d_portrait_cache/
+
+# Third-party image libraries are excluded from the default open-source package.
+# These rules do not remove files already tracked in Git history.
+library/img/
+library/thumbs/
+library/data/
+garments/img/
+garments/data/
+portraits/img/
+portraits/data/

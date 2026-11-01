@@ -1,8 +1,7 @@
-"""comfyui-aicg3d-PoseSwap 自带的服装图库数据访问层。
+"""服装图库数据访问层。
 
-本插件完全独立：服装图库（garments/data/garment.json + garments/img/*.webp）
-随插件目录一起分发，不依赖 nvzhuang 或任何外部插件。别人拷贝整个插件目录
-即可获得相同服装图库。
+默认读取插件目录下的 garments/，也可通过 AICG3D_GARMENT_LIBRARY
+指向由使用者自行合法取得的外部图库根目录。
 """
 import json
 import os
@@ -75,3 +74,5 @@ def load_garment_image(garment_id):
 def garment_description(garment_id):
     row = garment(garment_id)
     return " / ".join(str(row.get(k, "")) for k in ("cat_cn", "desc"))
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 JGRFW

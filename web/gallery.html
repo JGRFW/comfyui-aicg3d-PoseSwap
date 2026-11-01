@@ -1,26 +1,22 @@
 <!DOCTYPE html>
+<!-- Project adaptations: SPDX-License-Identifier: MIT, Copyright (c) 2026 JGRFW. Upstream gallery interface: MIT, Copyright (c) 2026 Anhao; images are excluded. -->
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light">
-<title>AI 姿势参考库｜288 组人体姿势 · 1439 张多角度参考图</title>
-<meta name="description" content="AI 姿势参考库收录 288 组人体姿势、1439 张 900×1200 多角度参考图，覆盖全身、上半身与双人姿势。支持按体系、动作分类、正面 / 俯视 / 仰视等视角筛选，可在线对比并下载原图，适用于 AI 绘画、构图与动作参考。">
+<title>AICG3D 姿势图库｜ComfyUI 本地适配</title>
+<meta name="description" content="AICG3D PoseSwap 的非官方本地姿势索引与 ComfyUI 选择页面。素材来源、原作者和许可链接见页面底部。">
 <meta name="keywords" content="AI 姿势,姿势参考,人体姿势,绘画参考,构图参考,动作参考,POSE 图库,多角度姿势,素体线稿">
-<meta name="author" content="Anhao">
+<meta name="author" content="AICG3D PoseSwap contributors; upstream Chinese project by Anhao">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="application-name" content="POSE Atlas">
 <meta name="theme-color" content="#f5f7fb">
-<link rel="canonical" href="https://ai-pose-gallery.anhao.app/">
-<link rel="sitemap" type="application/xml" href="/sitemap.xml">
-<link rel="alternate" hreflang="zh-CN" href="https://ai-pose-gallery.anhao.app/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:site_name" content="POSE Atlas">
 <meta property="og:title" content="AI 姿势参考库｜288 组人体姿势 · 1439 张多角度参考图">
 <meta property="og:description" content="按体系、分类、视角筛选 288 组人体姿势，多角度对比并下载 900×1200 原图，适用于 AI 绘画、构图与动作参考。">
-<meta property="og:url" content="https://ai-pose-gallery.anhao.app/">
-<meta property="og:image" content="https://ai-pose-gallery.anhao.app/og-cover.jpg">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -28,43 +24,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="AI 姿势参考库｜288 组人体姿势 · 1439 张参考图">
 <meta name="twitter:description" content="288 组人体姿势、1439 张多角度参考图，支持筛选、对比与下载原图。">
-<meta name="twitter:image" content="https://ai-pose-gallery.anhao.app/og-cover.jpg">
 <meta name="twitter:image:alt" content="AI 姿势参考库页面预览">
-<meta name="twitter:site" content="@anhao_ai">
-<meta name="twitter:creator" content="@anhao_ai">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%235b5bd6'/%3E%3Ccircle cx='16' cy='9' r='3.2' fill='white'/%3E%3Cpath d='M16 13.5c-2.5 0-4 1.6-4 3.8v3.8h2v7h4v-7h2v-3.8c0-2.2-1.5-3.8-4-3.8z' fill='white'/%3E%3C/svg%3E">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": "https://ai-pose-gallery.anhao.app/#website",
-      "url": "https://ai-pose-gallery.anhao.app/",
-      "name": "POSE Atlas",
-      "alternateName": "AI 姿势参考库",
-      "description": "288 组人体姿势、1439 张多角度 AI 绘画姿势参考图。",
-      "inLanguage": "zh-CN"
-    },
-    {
-      "@type": "ImageGallery",
-      "@id": "https://ai-pose-gallery.anhao.app/#webpage",
-      "url": "https://ai-pose-gallery.anhao.app/",
-      "name": "AI 姿势参考库 · POSE Atlas",
-      "description": "收录 288 组人体姿势、1439 张 900×1200 多角度参考图，支持分类筛选、多角度对比与原图下载。",
-      "isPartOf": { "@id": "https://ai-pose-gallery.anhao.app/#website" },
-      "inLanguage": "zh-CN",
-      "about": { "@type": "Thing", "name": "人体姿势参考" },
-      "primaryImageOfPage": {
-        "@type": "ImageObject",
-        "url": "https://ai-pose-gallery.anhao.app/og-cover.jpg",
-        "width": 1200,
-        "height": 630
-      }
-    }
-  ]
-}
-</script>
 <style>
 :root{
   --bg:#f5f7fb;--surface:#fff;--surface-2:#f8f9fc;--text:#171a21;--text-2:#5d6472;
@@ -432,8 +393,9 @@ main{padding:22px 0 54px}
 <footer class="site-footer">
   <div class="shell footer-inner">
     <div class="footer-copy">
-      <p><strong>POSE Atlas 中文版</strong> · 图片与原始数据版权归原作者ギア所有 · 中文版由 Anhao 整理维护</p>
-      <p>来源：<a href="https://ai-pose-gallery.pages.dev/" target="_blank" rel="noopener noreferrer">ai-pose-gallery.pages.dev</a> · 使用图片前请阅读注意事项，图片数据的再分发、转载与再售以原作者条款为准。</p>
+<p><strong>POSE Atlas 中文版</strong> · 图片与原始数据版权归原作者ギア所有 · 中文整理由 Anhao 维护 · 本页面为 AICG3D PoseSwap 的非官方本地适配</p>
+<p>来源：<a href="https://ai-pose-gallery.pages.dev/" target="_blank" rel="noopener noreferrer">ai-pose-gallery.pages.dev</a> · 使用图片前请阅读注意事项，图片数据的再分发、转载与再售以原作者条款为准。</p>
+<p>公开再分发、商业使用与许可边界见项目根目录 <code>THIRD_PARTY_NOTICES.md</code>。免责声明不能替代授权。</p>
     </div>
     <div class="footer-links">
       <a href="https://github.com/anhao/ai-pose-gallery-zh" target="_blank" rel="noopener noreferrer">GitHub 源码<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 4h6v6m0-6-9 9M19 14v6H4V5h6"/></svg></a>

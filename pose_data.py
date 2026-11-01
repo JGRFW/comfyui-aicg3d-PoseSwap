@@ -1,7 +1,7 @@
-"""ComfyUI-AICG3D-pose 自带的姿势图库数据访问层。
+"""姿势图库数据访问层。
 
-本插件完全独立：图库（data/pose-zh.json + img/ + thumbs/）随插件目录一起分发，
-不依赖任何外部插件。别人拷贝整个插件目录即可获得相同图库。
+默认读取插件目录下的 library/（data/pose-zh.json + img/ + thumbs/）。
+公开代码-only 发行包可通过 AICG3D_POSE_LIBRARY 指向外部图库根目录。
 """
 import json
 import os
@@ -93,3 +93,5 @@ def load_catalog(library):
     if not source.is_file():
         raise FileNotFoundError(f"姿势图库缺失：{source}")
     return json.loads(source.read_text(encoding="utf-8"))
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 JGRFW

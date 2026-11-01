@@ -1,0 +1,17 @@
+{
+  "source": "https://ai-portrait-gallery.pages.dev/",
+  "author": "あぎ (@agi_aibusi)",
+  "author_url": "https://x.com/agi_aibusi",
+  "snapshot_date": "2026-10-30",
+  "license": "CC0 1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.zh",
+  "bundled_compressed_copy": true,
+  "full_max": [
+    768,
+    960
+  ],
+  "thumb_max": [
+    360,
+    450
+  ]
+}
