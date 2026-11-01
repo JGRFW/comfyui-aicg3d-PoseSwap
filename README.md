@@ -47,6 +47,18 @@ git clone https://github.com/JGRFW/comfyui-aicg3d-PoseSwap.git
 然后按 [MODEL_REQUIREMENTS.md](MODEL_REQUIREMENTS.md) 下载不随仓库提供的模型权重，重启 ComfyUI。
 代码-only 发布包可使用 `python scripts/package_open_source.py` 生成；它默认排除第三方图库。
 
+### 人像图库首次安装
+
+GitHub 开源仓库默认不提交 `portraits/img/` 和 `portraits/data/`，所以刚安装后“换头换脸参考选择”页面显示“还没有安装人像图库”是预期状态，不是节点损坏。
+
+先从合法来源取得兼容的 `comfyui-portrait-gallery/library`，然后运行：
+
+```bash
+python scripts/configure_portrait_library.py --source "C:\path\to\comfyui-portrait-gallery\library"
+```
+
+重启 ComfyUI 后，点击节点里的“浏览人像图库”即可搜索。也可以把图库放在插件 `portraits/` 目录，或设置 `AICG3D_PORTRAIT_LIBRARY` 环境变量。安装状态接口为 `/aicg3d_pose/portraits/status`。
+
 ## 六个节点（含双子图封装工作流）
 
 ```

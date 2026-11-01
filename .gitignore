@@ -15,6 +15,7 @@ release/
 *.pt
 *.pth
 aicg3d_portrait_cache/
+portrait_library_path.txt
 
 # Third-party image libraries are excluded from the default open-source package.
 # These rules do not remove files already tracked in Git history.

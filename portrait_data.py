@@ -28,7 +28,7 @@ SNAPSHOT_DATE = "2026-10-30"
 SOURCE_LABEL = "AI モデル顔データベース（AI Portrait Gallery）"
 REDISTRIBUTION_NOTE = (
     "原站标注 CC0 1.0，并请求避免直接再分发图片数据本身。"
-    "本插件按项目分发需要包含压缩后的本地副本，并保留署名、原站与许可链接。"
+    "公开代码仓库默认不包含图片；如本地已安装图库，请保留署名、原站与许可链接。"
     "公开再发布或商业使用前，请自行核对原站最新规则并承担合规责任。"
 )
 DISCLAIMER = (
@@ -41,6 +41,7 @@ LEGAL_NOTE = "以上为来源与使用提示，不构成法律意见。"
 ID_RE = re.compile(r"^[A-Za-z0-9_-]{1,80}$")
 THUMB_SIZE = (360, 450)
 THUMB_QUALITY = 78
+POINTER_FILE = ROOT / "portrait_library_path.txt"
 
 
 def _comfy_user_directory():
@@ -56,6 +57,14 @@ def _library_candidates():
     env_path = os.environ.get(LIBRARY_ENV)
     if env_path:
         yield Path(env_path).expanduser()
+    if POINTER_FILE.is_file():
+        try:
+            pointer = Path(POINTER_FILE.read_text(encoding="utf-8").strip()).expanduser()
+            if not pointer.is_absolute():
+                pointer = ROOT / pointer
+            yield pointer
+        except OSError:
+            pass
     yield ROOT / "portraits"
     yield ROOT / "portraits" / "library"
     yield ROOT.parent / "comfyui-portrait-gallery" / "library"
@@ -72,9 +81,49 @@ def library_root():
         if (root / "data" / "portrait-zh.json").is_file():
             return root
     raise FileNotFoundError(
-        "人像图库缺失。请把 comfyui-portrait-gallery 的 library 目录链接为插件的 portraits/，"
-        f"或设置环境变量 {LIBRARY_ENV} 指向该目录。"
+        "人像图库未安装。公开代码仓库不包含第三方人像图片；请先取得合法图库，"
+        "再运行 python scripts/configure_portrait_library.py --source <library目录>，"
+        f"或设置环境变量 {LIBRARY_ENV} 后重启 ComfyUI。"
     )
+
+
+def configure_library(source):
+    root = Path(source).expanduser().resolve()
+    if not (root / "data" / "portrait-zh.json").is_file():
+        raise FileNotFoundError("所选目录缺少 data/portrait-zh.json，请指向图库根目录。")
+    if not (root / "img" / "full").is_dir():
+        raise FileNotFoundError("所选目录缺少 img/full，请确认图库文件完整。")
+    POINTER_FILE.write_text(str(root), encoding="utf-8")
+    library_root.cache_clear()
+    return library_status()
+
+
+def library_status():
+    configured = os.environ.get(LIBRARY_ENV, "").strip()
+    if not configured and POINTER_FILE.is_file():
+        try:
+            configured = POINTER_FILE.read_text(encoding="utf-8").strip()
+        except OSError:
+            configured = ""
+    try:
+        root = library_root()
+        rows = records()
+        return {
+            "available": True,
+            "path": str(root),
+            "records": len(rows),
+            "environment_variable": LIBRARY_ENV,
+            "pointer_file": str(POINTER_FILE),
+        }
+    except (FileNotFoundError, ValueError, OSError) as exc:
+        return {
+            "available": False,
+            "path": configured,
+            "records": 0,
+            "error": str(exc),
+            "environment_variable": LIBRARY_ENV,
+            "pointer_file": str(POINTER_FILE),
+            "setup_command": "python scripts/configure_portrait_library.py --source <comfyui-portrait-gallery/library>"},
 
 
 def cache_root():
@@ -142,8 +191,11 @@ def records():
 
 def metadata():
     rows = records()
+    status = library_status()
     return {
         "total": len(rows),
+        "library_path": status.get("path", ""),
+        "library_available": status.get("available", False),
         "sections": {
             "face": sum(row["section"] == "face" for row in rows),
             "styling": sum(row["section"] == "styling" for row in rows),

@@ -52,6 +52,8 @@ git count-objects -vH
 - [ ] 在干净 ComfyUI `custom_nodes/` 中克隆或解压后能加载插件。
 - [ ] 缺少外部图库时，ComfyUI 能启动并显示明确错误，不会崩溃。
 - [ ] 设置三个图库环境变量后，浏览页面和选择节点可用。
+- [ ] 全新安装未配置人像图库时，页面明确显示“还没有安装人像图库”，并提供 `configure_portrait_library.py` 命令，而不是只显示空搜索结果。
+- [ ] 运行 `python scripts/configure_portrait_library.py --status` 能显示当前图库路径和记录数。
 - [ ] 依赖模型按 `README.md` 放入正确目录后，三段工作流能完整执行。
 - [ ] 三项开关关闭时能正常透传。
 - [ ] 三个预览按头像、姿势、服饰顺序输出。

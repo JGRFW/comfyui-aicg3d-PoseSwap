@@ -40,7 +40,7 @@ app.registerExtension({
           if (request !== previewRequest) return;
           preview.style.display = "none";
           previewError.style.display = "grid";
-          previewError.textContent = "人像预览加载失败。请确认 portraits 目录已指向 comfyui-portrait-gallery/library，并重启 ComfyUI。";
+          previewError.textContent = "人像图库未安装。开源仓库默认不包含第三方图片，请运行 scripts/configure_portrait_library.py 配置图库目录，或打开图库查看安装说明。";
         };
         preview.src = api.apiURL(`/aicg3d_pose/portraits/thumb/${encodeURIComponent(portraitId)}.webp`);
         preview.title = portraitId;

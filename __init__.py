@@ -360,7 +360,7 @@ class PoseQwen21PortraitSelect:
                 "portrait_id": ("STRING", {
                     "default": "f71f980dde3",
                     "multiline": False,
-                    "tooltip": "点击浏览人像图库选择正脸或造型参考；原图保存在外部本地图库，不随插件分发。",
+                    "tooltip": "点击浏览人像图库选择正脸或造型参考。开源仓库默认不含第三方图片，请先运行 scripts/configure_portrait_library.py 或设置 AICG3D_PORTRAIT_LIBRARY。",
                 }),
             },
         }
@@ -1001,6 +1001,12 @@ if "/aicg3d_pose/garments/gallery" not in _route_paths:
     _register_route("/aicg3d_pose/garments/gallery", aicg3d_pose_garments_gallery)
 
 
+if "/aicg3d_pose/portraits/status" not in _route_paths:
+    async def aicg3d_pose_portraits_status(request):
+        return web.json_response(portrait_data.library_status(), headers={"Cache-Control": "no-store"})
+    _register_route("/aicg3d_pose/portraits/status", aicg3d_pose_portraits_status)
+
+
 if "/aicg3d_pose/portraits/catalog" not in _route_paths:
     async def aicg3d_pose_portraits_catalog(request):
         try:
@@ -1009,7 +1015,11 @@ if "/aicg3d_pose/portraits/catalog" not in _route_paths:
                 headers={"Cache-Control": "no-store"},
             )
         except (ValueError, FileNotFoundError) as exc:
-            return web.json_response({"error": str(exc)}, status=503)
+            return web.json_response(
+                {"error": str(exc), "status": portrait_data.library_status()},
+                status=503,
+                headers={"Cache-Control": "no-store"},
+            )
     _register_route("/aicg3d_pose/portraits/catalog", aicg3d_pose_portraits_catalog)
 
 
