@@ -1,3 +1,5 @@
+<img width="1615" height="486" alt="image" src="https://github.com/user-attachments/assets/0f35cd8d-efb8-4540-a2bc-e4022fbdc3c6" />
+
 # comfyui-aicg3d-PoseSwap
 
 项目作者/维护者：JGRFW。项目源代码采用 MIT License，版权声明见 [LICENSE](LICENSE)，上游作者与素材来源见 [AUTHORS.md](AUTHORS.md)。
