@@ -34,7 +34,7 @@
 
 ## 本地开发目录中的压缩副本
 
-维护者的本地开发目录可以包含以下压缩文件，但 GitHub 开源仓库和 code-only 发布包默认排除：
+GitHub `main` 仓库当前包含以下压缩文件；可选的 code-only 发布包会排除它们：
 
 - `portraits/img/full/`：1,499 张最大 768×960 的 WebP 参考图。
 - `portraits/img/thumb/`：1,499 张最大 360×450 的 WebP 浏览缩略图。
@@ -62,7 +62,7 @@
 
 ## 技术说明
 
-- GitHub 开源仓库和 code-only 发布包默认不包含 `portraits/img/` 与 `portraits/data/`。
+- GitHub `main` 仓库包含 `portraits/img/` 与 `portraits/data/`；code-only 发布包不包含它们。
 - 首次安装后图库搜索为空时，先取得兼容的 `comfyui-portrait-gallery/library`，再运行 `python scripts/configure_portrait_library.py --source <library目录>` 并重启 ComfyUI。
 - 可通过 `/aicg3d_pose/portraits/status` 检查图库是否安装以及当前读取路径。
 - 压缩预览与节点输出读取已配置的外部图库；也可直接把完整图库放在插件 `portraits/` 下。

@@ -154,7 +154,7 @@ main{padding:20px 0 48px}
   </div>
 </header>
 
-<div class="shell"><div class="notice" id="sourceNotice"><strong>来源提示：</strong>原站标注 CC0 1.0，同时请求避免直接再分发图片数据本身。公开代码仓库默认不包含图片；本地安装图库时请保留原作者、原站与许可链接。</div></div>
+<div class="shell"><div class="notice" id="sourceNotice"><strong>来源提示：</strong>原站标注 CC0 1.0，同时请求避免直接再分发图片数据本身。GitHub main 仓库包含压缩副本，code-only 包不包含图片；请保留原作者、原站与许可链接。</div></div>
 
 <section class="controls" aria-label="人像筛选">
   <div class="shell controls-inner">
@@ -416,11 +416,11 @@ async function loadLibrary() {
       try { status = await (await fetch('/aicg3d_pose/portraits/status')).json(); } catch (_) {}
     }
     $('#resultCount').textContent = status.available === false ? '人像图库未安装' : '图库加载失败';
-    $('#resultHint').textContent = '公开代码仓库默认不包含第三方人像图片';
+    $('#resultHint').textContent = '当前安装目录未检测到完整人像图库';
     const reason = status.error || error.message || '未知错误';
     grid.innerHTML = `<div class="empty">
       <h3>还没有安装人像图库</h3>
-      <p>开源代码仓库默认不包含第三方人像图片，因此这里没有可搜索的内容。请先取得合法的人像图库副本。</p>
+      <p>当前安装目录没有找到 <code>portraits/data/portrait-zh.json</code> 或对应图片。如果你下载的是 code-only 包，需要先取得合法的人像图库副本；GitHub main 完整仓库已包含这份图库。</p>
       <p style="margin-top:10px"><strong>检测结果：</strong>${esc(reason)}</p>
       <code style="display:block;max-width:920px;margin:16px auto;padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:var(--surface-2);text-align:left;white-space:pre-wrap;overflow-wrap:anywhere">python scripts/configure_portrait_library.py --source "C:\\path\\to\\comfyui-portrait-gallery\\library"</code>
       <p>运行命令后重启 ComfyUI，再打开本页面。也可以设置环境变量 <code>${esc(status.environment_variable || 'AICG3D_PORTRAIT_LIBRARY')}</code>。</p>

@@ -40,7 +40,7 @@ app.registerExtension({
           if (request !== previewRequest) return;
           preview.style.display = "none";
           previewError.style.display = "grid";
-          previewError.textContent = "人像图库未安装。开源仓库默认不包含第三方图片，请运行 scripts/configure_portrait_library.py 配置图库目录，或打开图库查看安装说明。";
+          previewError.textContent = "人像图库未安装或路径不完整。请确认 portraits/data/portrait-zh.json 存在，或运行 scripts/configure_portrait_library.py 配置图库目录。";
         };
         preview.src = api.apiURL(`/aicg3d_pose/portraits/thumb/${encodeURIComponent(portraitId)}.webp`);
         preview.title = portraitId;

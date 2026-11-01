@@ -28,7 +28,7 @@ SNAPSHOT_DATE = "2026-10-30"
 SOURCE_LABEL = "AI モデル顔データベース（AI Portrait Gallery）"
 REDISTRIBUTION_NOTE = (
     "原站标注 CC0 1.0，并请求避免直接再分发图片数据本身。"
-    "公开代码仓库默认不包含图片；如本地已安装图库，请保留署名、原站与许可链接。"
+    "GitHub main 仓库包含压缩副本，code-only 包不包含图片；请保留署名、原站与许可链接。"
     "公开再发布或商业使用前，请自行核对原站最新规则并承担合规责任。"
 )
 DISCLAIMER = (
@@ -81,7 +81,7 @@ def library_root():
         if (root / "data" / "portrait-zh.json").is_file():
             return root
     raise FileNotFoundError(
-        "人像图库未安装。公开代码仓库不包含第三方人像图片；请先取得合法图库，"
+        "人像图库未安装或路径不完整。GitHub main 仓库应包含 portraits/data 与 portraits/img；如使用 code-only 包，请先取得合法图库，"
         "再运行 python scripts/configure_portrait_library.py --source <library目录>，"
         f"或设置环境变量 {LIBRARY_ENV} 后重启 ComfyUI。"
     )

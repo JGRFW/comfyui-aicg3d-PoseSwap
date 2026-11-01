@@ -19,21 +19,21 @@
 
 ## 图库来源与分发状态
 
-当前完整开发目录可以同时保留三套本地图库；推荐的公开代码-only 包只包含读取和浏览逻辑，不包含图片，避免把未授权素材随源码公开。两种模式都支持环境变量指向外部图库目录：
+当前 GitHub `main` 仓库和完整开发目录保留三套本地图库；另可生成只含代码的 code-only 包供需要外挂图库的场景使用。两种模式都支持环境变量指向外部图库目录：
 
 素材来源、许可与责任说明见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) 和 [PORTRAIT_LIBRARY_NOTICE.md](PORTRAIT_LIBRARY_NOTICE.md)。
 
 | 依赖来源 | 说明 |
 | --- | --- |
-| **姿势图库** | **当前开发目录自带**（`library/`，1439 张原图 + 1439 张缩略图 + 中文索引）；公开代码-only 包默认排除 |
-| **服装图库** | **当前开发目录自带**（`garments/`，1407 张服装参考图 + 索引）；公开代码-only 包默认排除 |
-| **人像图库** | **当前开发目录自带压缩版**（`portraits/`，1499 张 WebP + 缩略图 + 索引）；公开代码-only 包默认排除 |
+| **姿势图库** | **GitHub 主仓库自带**（`library/`，1439 张原图 + 1439 张缩略图 + 中文索引）；code-only 包默认排除 |
+| **服装图库** | **GitHub 主仓库自带**（`garments/`，1407 张服装参考图 + 索引）；code-only 包默认排除 |
+| **人像图库** | **GitHub 主仓库自带压缩版**（`portraits/`，1499 张 WebP + 缩略图 + 索引）；code-only 包默认排除 |
 | **图库浏览页面与路由** | 由本插件自带（`web/gallery.html`、`web/garment_gallery.html` + `/aicg3d_pose/*` 全部路由），不调用任何外部插件 |
 | **ComfyUI** | 0.43+（含原生 Qwen Image 2.1 与 Qwen-Image-Edit-2511 节点：`nodes_qwen.py` / `nodes_flux.py` / `nodes_cfg.py` / `nodes_model_advanced.py`） |
 | **模型权重** | 标准 `models/` 目录（见下表），ComfyUI 通用存放位置，不属于任何插件 |
 
 > 别人使用时只需：① 拷贝本插件整个目录到其 ComfyUI 的 `custom_nodes/`；
-> ② 按下方「依赖模型」准备好权重文件；③ 重启 ComfyUI。当前完整开发目录包含本地图库，但推荐的公开代码-only 包不包含第三方图库，使用者需通过三个 `AICG3D_*_LIBRARY` 环境变量指向自行合法取得的素材目录。
+> ② 按下方「依赖模型」准备好权重文件；③ 重启 ComfyUI。GitHub 主仓库包含三套本地图库；如使用 code-only 包，则需通过三个 `AICG3D_*_LIBRARY` 环境变量指向外部素材目录。
 
 ## 安装
 
@@ -49,7 +49,7 @@ git clone https://github.com/JGRFW/comfyui-aicg3d-PoseSwap.git
 
 ### 人像图库首次安装
 
-GitHub 开源仓库默认不提交 `portraits/img/` 和 `portraits/data/`，所以刚安装后“换头换脸参考选择”页面显示“还没有安装人像图库”是预期状态，不是节点损坏。
+GitHub `main` 仓库包含 `portraits/img/` 和 `portraits/data/`。如果你下载的是 code-only 包，或安装器只复制了源码，页面会显示“还没有安装人像图库”；此时按下面的命令配置外部图库，或者从 GitHub 下载完整仓库。
 
 先从合法来源取得兼容的 `comfyui-portrait-gallery/library`，然后运行：
 

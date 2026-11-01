@@ -1,0 +1,30 @@
+{
+  "total": 1499,
+  "sections": {
+    "face": 893,
+    "styling": 606
+  },
+  "hair": {
+    "短发": 727,
+    "中发": 376,
+    "中长发": 260,
+    "长发": 136
+  },
+  "style_count": 50,
+  "original_bytes": 4862010894,
+  "source": "https://ai-portrait-gallery.pages.dev/",
+  "snapshot_date": "2026-10-30",
+  "license": "CC0 1.0",
+  "bundled": true,
+  "bundled_snapshot": "compressed-webp",
+  "full_max": [
+    768,
+    960
+  ],
+  "thumb_max": [
+    360,
+    450
+  ],
+  "records": 1499,
+  "license_notice": "原站标注 CC0 1.0，并请求避免直接再分发图片数据。本目录是随插件分发的压缩副本，署名与来源链接必须保留。"
+}
